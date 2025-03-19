@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>키오스크</title>
+  <style>
+    .product {
+      margin-bottom: 10px;
+    }
+    .button {
+      margin-left: 10px;
+    }
+  </style>
+</head>
+<body>
+  <h1>키오스크</h1>
+  <div id="products">
+    <div class="product">
+      <span>상품 A: 1000원</span>
+      <button class="button" onclick="addToCart(1000)">장바구니에 추가</button>
+    </div>
+    <div class="product">
+      <span>상품 B: 2000원</span>
+      <button class="button" onclick="addToCart(2000)">장바구니에 추가</button>
+    </div>
+    <div class="product">
+      <span>상품 C: 3000원</span>
+      <button class="button" onclick="addToCart(3000)">장바구니에 추가</button>
+    </div>
+  </div>
+
+  <h2>장바구니</h2>
+  <ul id="cart"></ul>
+  <p>총합계: <span id="total">0</span>원</p>
+
+  <script>
+    let total = 0;
+
+    function addToCart(price) {
+      total += price;
+      const cart = document.getElementById('cart');
+      const totalElement = document.getElementById('total');
+
+      const listItem = document.createElement('li');
+      listItem.textContent = `상품 가격: ${price}원`;
+      cart.appendChild(listItem);
+
+      totalElement.textContent = total;
+    }
+  </script>
+</body>
+</html>
